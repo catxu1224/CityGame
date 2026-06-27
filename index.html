@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>小小城市安全驾驶</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-stage" aria-label="小小城市安全驾驶游戏">
+        <canvas id="gameCanvas" width="1280" height="760"></canvas>
+
+        <div class="hud hud-top">
+          <div class="stat">
+            <span class="stat-label">血量</span>
+            <div class="health-shell" aria-label="血量">
+              <div id="healthFill" class="health-fill"></div>
+            </div>
+            <strong id="healthText">100%</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">金币</span>
+            <strong id="coinsText">0</strong>
+          </div>
+          <div class="stat">
+            <span class="stat-label">碰撞</span>
+            <strong id="crashesText">0</strong>
+          </div>
+        </div>
+
+        <aside class="vault" aria-label="宝物库">
+          <div class="vault-title">宝物库</div>
+          <div id="vaultItems" class="vault-items"></div>
+        </aside>
+
+        <div id="startScreen" class="overlay">
+          <div class="dialog">
+            <p class="eyebrow">儿童城市地图小游戏</p>
+            <h1>小小城市安全驾驶</h1>
+            <p class="lead">
+              移动鼠标控制黄色小汽车在道路中前进，躲开车辆，收集金币、宝物和百宝箱，到达终点。
+            </p>
+            <div class="difficulty-grid" role="group" aria-label="选择难度">
+              <button class="difficulty-card selected" type="button" data-difficulty="easy">
+                <span>低级</span>
+                <small>车辆少，速度慢</small>
+              </button>
+              <button class="difficulty-card" type="button" data-difficulty="medium">
+                <span>中级</span>
+                <small>车辆中等，速度中等</small>
+              </button>
+              <button class="difficulty-card" type="button" data-difficulty="hard">
+                <span>高级</span>
+                <small>车辆多，速度略快</small>
+              </button>
+            </div>
+            <button id="startButton" class="primary-button" type="button">开始游戏</button>
+          </div>
+        </div>
+
+        <div id="endScreen" class="overlay hidden">
+          <div id="celebrationLayer" class="celebration-layer" aria-hidden="true"></div>
+          <div class="dialog end-dialog">
+            <p id="resultTitle" class="eyebrow">恭喜完成</p>
+            <h2 id="resultHeading">安全到达终点</h2>
+            <div class="result-grid">
+              <div>
+                <span>撞击汽车数量</span>
+                <strong id="resultCrashes">0</strong>
+              </div>
+              <div>
+                <span>捡到宝物数量</span>
+                <strong id="resultTreasures">0</strong>
+              </div>
+              <div>
+                <span>金币数量</span>
+                <strong id="resultCoins">0</strong>
+              </div>
+              <div>
+                <span>血条百分比</span>
+                <strong id="resultHealth">100%</strong>
+              </div>
+            </div>
+            <button id="restartButton" class="primary-button" type="button">再玩一次</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
